@@ -3,7 +3,7 @@ import qkd_hosts as hosts
 
 ### PARÁMETROS DE SESIÓN ###
 NUM_QUBITS = 512  # Tiene que coincidir con CONFIG_ALICE.py y CONFIG_NETSQUID.py
-NUM_CLAVES = 1    # Tiene que coincidir con CONFIG_ALICE.py y CONFIG_NETSQUID.py
+NUM_CLAVES = 10    # Tiene que coincidir con CONFIG_ALICE.py y CONFIG_NETSQUID.py
 QBER_SAMPLE_RATIO = 0.30  # Bits revelados para cálculo QBER
 
 

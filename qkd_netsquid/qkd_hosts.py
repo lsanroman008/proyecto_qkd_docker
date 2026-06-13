@@ -1,7 +1,7 @@
 ### CONFIGURACIÓN DE DESPLIEGUE EN 2 MÁQUINAS ###
 # IPs físicas de las máquinas
-ALICE_HOST = "192.168.1.201"
-BOB_HOST = "192.168.1.202"
+ALICE_HOST = "10.98.1.200"
+BOB_HOST = "10.98.1.82"
 
 # NetSquid y el monitor están en la máquina Alice:
 NETSQUID_HOST = ALICE_HOST

@@ -3,7 +3,7 @@ import qkd_hosts as hosts
 
 ### PARÁMETROS DE SESIÓN ###
 NUM_QUBITS = 512  # Tiene que coincidir con CONFIG_BOB.py y CONFIG_NETSQUID.py
-NUM_CLAVES = 1    # Tiene que coincidir con CONFIG_BOB.py y CONFIG_NETSQUID.py
+NUM_CLAVES = 10    # Tiene que coincidir con CONFIG_BOB.py y CONFIG_NETSQUID.py
 QBER_ABORT_THRESHOLD = 11.0  # QBER verificación > QBER_ABORT_THRESHOLD descarta la ronda
 
 
