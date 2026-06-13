@@ -18,8 +18,8 @@ cd "$QKD_HOME"
 mkdir -p db_bob logs
 chmod +x entrypoint.qkd.sh scripts_instalacion/*.sh scripts_control/*.sh 2>/dev/null || true
 
-echo "[QKD] Construyendo servicio Bob..."
-docker compose build bob
+#echo "[QKD] Construyendo servicio Bob..."
+#docker compose build bob
 
 echo "[QKD] Levantando servicio Bob..."
 docker compose up -d bob
