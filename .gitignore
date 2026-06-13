@@ -1,3 +1,5 @@
+.git/
+
 # =========================
 # Python
 # =========================
@@ -23,10 +25,7 @@ logs/
 db_alice/
 db_bob/
 db_monitor/
-secrets/
-scripts_instalacion_build/
-docker/
-docker-compose.build.yaml
+
 
 # Si usas una carpeta genérica de datos persistentes
 #data/

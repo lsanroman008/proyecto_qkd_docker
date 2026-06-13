@@ -7,29 +7,29 @@ Hash: SHA512
   "signedByOrg": "grafana",
   "signedByOrgName": "Grafana Labs",
   "plugin": "elasticsearch",
-  "version": "12.6.2",
-  "time": 1778511775770,
+  "version": "12.6.4",
+  "time": 1781261522354,
   "keyId": "7e4d0c6a708866e7",
   "files": {
     "LICENSE": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
     "query_help.md": "5a854fcc0a588ef1b502000a2dd03430d6d485998922e8f117d223466dc77254",
-    "CHANGELOG.md": "f100af77421bb3dbdc7bdc6674b1101bbdd8aac687329d59a3a746e708a8348c",
-    "plugin.json": "1134686058fa22651a02a2d347fbe2e0072588a127948e8e574a2ebb4bb1e439",
+    "CHANGELOG.md": "b00913b6027d791e874dc46fe49c072b676a37d44172d6305a7b4bb6e901acd9",
+    "plugin.json": "b8cf61ed389ac79b3156e73a729c584cd5514c153a515ae8fb95435c6933c6cb",
     "img/elasticsearch.svg": "79e9c13448cdf9257d634af416277893aea5fd48376776c26470b902cf42206f",
-    "go_plugin_build_manifest": "e78f519857cf2e3e56ec0782d65a2f320d7483e0933824daf7258cd2c561e6d2",
+    "go_plugin_build_manifest": "9936a02b130b3a5a1d772b911284f062cfe6b273af2d356d59e141ed890ce762",
     "README.md": "1879fc1ceda6be2ec8e81261ba926a7c868560905253e570febca41e8143d7f8",
-    "module.js.map": "5285c80d16a6b7829e7b820fe200273f55437e715d3fdea5079d2eac6c2edd72",
-    "module.js": "90b0353a5db35d0193848ee48376a8c0994ed25e7fb1b02a54fe48c77ec74f96",
-    "gpx_grafana_elasticsearch_datasource_linux_amd64": "4a9d951f7c45ce6c5ff8eb2f7e79c8071b696109eea6a3b4992397568e21c0b0"
+    "module.js.map": "3656f84f75b45b85c8d37670e517b83bb6597524878cadeae691e767b63036e7",
+    "module.js": "3ae67367bcb54d919542240e5caaf63ce9cc74872fa045fba1834c69cd9b101c",
+    "gpx_grafana_elasticsearch_datasource_linux_amd64": "8919260f9dbb0e44b071efb7652daceea9a36639883e0d285238f1019791e682"
   }
 }
 -----BEGIN PGP SIGNATURE-----
 
-wsA/BAETCgBtBYJqAe+fCRB+TQxqcIhm50UUAAAAAAAcACBzYWx0QG5vdGF0
-aW9ucy5vcGVucGdwanMub3Jn0IzAs59Zb503+gcomwy1IjZ2PYXY4Z0Xe2HH
-8zuh8G4WIQTzOyW2kQdOhGNlcPN+TQxqcIhm5wAAKgsCCQGOfVOP/mRiFLXF
-E+32zPtpx5RuK5uNqtTil9aq/NBuc/n2o1pJUns4cVaS1F/blxcySvGq4cKB
-IX4smoVoPelTZwIJAQP4IlDgysilYcEU/5NzejA855mV7vlDai2pG8HTV3eo
-TPJI3sPSuGtar/SF/eCGMD0TSo+T4WJAni/iLG46qesU
-=BVSN
+wsA9BAETCgBtBYJqK+TSCRB+TQxqcIhm50UUAAAAAAAcACBzYWx0QG5vdGF0
+aW9ucy5vcGVucGdwanMub3JnCVl0nVNd+I7chIKEyk6dQhZgAlT+cT7nszz8
+uhhu0oYWIQTzOyW2kQdOhGNlcPN+TQxqcIhm5wAAwZ8CCIPb6DZ4SqVIUrnb
+ihe7pNZOEejAk2t3GI8X7abrl3LqvFQ9MuBP2msRBUf0xTk7sdAkVSaQonnd
+bCSx7f2UtK3LAgjzyLHWGDNNBoOHql4SeCmSFQKIesFjJxadHHv6CAkdAjCL
+4T0xMLmS+mi9Uc+KcTYzhAab7hRX3t3vpla3lPpJUg==
+=Lz0S
 -----END PGP SIGNATURE-----

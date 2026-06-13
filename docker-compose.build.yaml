@@ -1,0 +1,100 @@
+services:
+  alice:
+    build:
+      context: ./docker/qkd
+      dockerfile: Dockerfile
+    image: qkdnetsquid/nodo-qkd:latest
+    container_name: alice
+    hostname: alice
+    environment:
+      - TZ=Europe/Madrid
+    networks:
+      qkd_net:
+        ipv4_address: 172.28.50.10
+    ports:
+      - "2201:22"
+      - "3310:3306"
+      - "6000:6000"
+      - "6001:6001"
+      - "6002:6002"
+    volumes:
+      - ./qkd_netsquid:/home/qkd/qkd_netsquid:ro
+      - ./db_alice:/var/lib/mysql
+      - ./logs:/home/qkd/logs
+    restart: unless-stopped
+
+  bob:
+    build:
+      context: ./docker/qkd
+      dockerfile: Dockerfile
+    image: qkdnetsquid/nodo-qkd:latest
+    container_name: bob
+    hostname: bob
+    environment:
+      - TZ=Europe/Madrid
+    networks:
+      qkd_net:
+        ipv4_address: 172.28.50.20
+    ports:
+      - "2202:22"
+      - "3320:3306"
+    volumes:
+      - ./qkd_netsquid:/home/qkd/qkd_netsquid:ro
+      - ./db_bob:/var/lib/mysql
+      - ./logs:/home/qkd/logs
+    restart: unless-stopped
+
+  netsquid:
+    build:
+      context: ./docker/netsquid
+      dockerfile: Dockerfile
+      secrets:
+        - source: netsquid_creds
+          target: netsquid_creds
+    image: qkdnetsquid/nodo-netsquid:latest
+    container_name: netsquid
+    hostname: netsquid
+    environment:
+      - TZ=Europe/Madrid
+    networks:
+      qkd_net:
+        ipv4_address: 172.28.50.30
+    ports:
+      - "2203:22"
+      - "5000:5000"
+    volumes:
+      - ./qkd_netsquid:/home/qkd/qkd_netsquid:ro
+      - ./logs:/home/qkd/logs
+    restart: unless-stopped
+
+  monitor:
+    build:
+      context: ./docker/monitor
+      dockerfile: Dockerfile
+    image: qkdnetsquid/nodo-monitor:latest
+    container_name: monitor
+    hostname: monitor
+    environment:
+      - TZ=Europe/Madrid
+    networks:
+      qkd_net:
+        ipv4_address: 172.28.50.40
+    ports:
+      - "2200:22"
+      - "3000:3000"
+      - "3307:3306"
+    volumes:
+      - ./db_monitor:/var/lib/mysql
+      - ./grafana_data:/var/lib/grafana
+    restart: unless-stopped
+
+networks:
+  qkd_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.50.0/24
+
+secrets:
+  netsquid_creds:
+    file: ./secrets/netsquid_creds.txt
