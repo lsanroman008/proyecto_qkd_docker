@@ -1,0 +1,77 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+
+# =========================
+# Logs de ejecución
+# =========================
+logs/
+*.log
+
+# =========================
+# Carpetas de persistencia Docker / BBDD
+# =========================
+db_alice/
+db_bob/
+db_monitor/
+secrets/
+scripts_instalacion_build/
+docker/
+docker-compose.build.yaml
+
+# Si usas una carpeta genérica de datos persistentes
+#data/
+#volumes/
+
+# =========================
+# Ficheros sensibles
+# =========================
+.env
+.env.*
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+
+# =================
+# Docker / Build temporales
+# =========================
+*.tar
+*.tar.gz
+*.zip
+*.bak
+*.bak_*
+.DS_Store
+
+# =========================
+# Backups generados por parches
+# =========================
+*.py.bak_*
+*.sh.bak_*
+*.sql.bak_*
+*.yaml.bak_*
+*.yml.bak_*
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# macOS
+# =========================
+.DS_Store
+.AppleDouble
+.LSOverride

@@ -1,0 +1,29 @@
+### CONFIGURACIÓN DE PARÁMETROS DE NETSQUID ###
+import qkd_hosts as hosts
+
+### PARÁMETROS DE SESIÓN ###
+NUM_QUBITS = 512
+NUM_CLAVES = 1  # Tiene que coincidir con CONFIG_ALICE.py y CONFIG_BOB.py
+
+
+### PRIVACY AMPLIFICATION ###
+PRE_PA_KEY_BITS = 512
+TARGET_KEY_BITS = PRE_PA_KEY_BITS
+
+
+### SOCKETS ###
+# NetSquid escucha conexiones de Alice y Bob.
+SERVIDOR_IP = "0.0.0.0"
+SERVIDOR_PUERTO = hosts.NETSQUID_PORT
+
+ALICE_WAIT_TIMEOUT_S = 180
+BOB_WAIT_TIMEOUT_S = 180
+
+
+### BASE DE DATOS PRINCIPAL ###
+# NetSquid y monitor están en la misma máquina/red Docker.
+QKD_DB_HOST = hosts.MONITOR_DOCKER_HOST
+QKD_DB_PORT = hosts.MONITOR_DB_PORT_INTERNO
+QKD_DB_USER = "QKD"
+QKD_DB_PASSWORD = ""
+QKD_DB_NAME = "QKD_netsquid"

@@ -1,0 +1,55 @@
+### CONFIGURACIÓN DE PARÁMETROS DE BOB ###
+import qkd_hosts as hosts
+
+### PARÁMETROS DE SESIÓN ###
+NUM_QUBITS = 512  # Tiene que coincidir con CONFIG_ALICE.py y CONFIG_NETSQUID.py
+NUM_CLAVES = 1    # Tiene que coincidir con CONFIG_ALICE.py y CONFIG_NETSQUID.py
+QBER_SAMPLE_RATIO = 0.30  # Bits revelados para cálculo QBER
+
+
+### SOCKETS ###
+# Bob está en otra máquina. Por eso se conecta a la IP física de Alice.
+# En la máquina Alice también están NetSquid y el monitor.
+SERVIDOR_IP = hosts.NETSQUID_HOST
+SERVIDOR_PUERTO = hosts.NETSQUID_PORT
+
+ALICE_IP = hosts.ALICE_HOST
+ALICE_PUERTO_SIFTING = hosts.ALICE_PUERTO_SIFTING
+ALICE_PUERTO_QBER = hosts.ALICE_PUERTO_QBER
+ALICE_PUERTO_SAVEKEY = hosts.ALICE_PUERTO_SAVEKEY
+
+ALICE_PUERTO_CLASICO = ALICE_PUERTO_SIFTING
+SOCKET_TIMEOUT = hosts.SOCKET_TIMEOUT
+
+
+### ERROR CORRECTION Y PRIVACY AMPLIFICATION ###
+PRIVACY_AMPLIFICATION = True
+PA_METHOD = "TOEPLITZ"
+FINAL_KEY_BITS = 256
+PRE_PA_KEY_BITS = 512
+
+CASCADE_PASSES = 5
+
+
+### BASE DE DATOS BOB ###
+# Base local dentro del contenedor Bob.
+BOB_DB_HOST = "127.0.0.1"
+BOB_DB_PORT = hosts.LOCAL_DB_PORT
+BOB_DB_USER = "QKD"
+BOB_DB_PASSWORD = ""
+BOB_DB_NAME = "QKD_keys_KMS1"
+
+
+### BASE DE DATOS MONITOR ###
+# Bob accede al monitor por la IP física de Alice y el puerto publicado 3307.
+MONITOR_DB_HOST = hosts.MONITOR_HOST
+MONITOR_DB_PORT = hosts.MONITOR_DB_PORT_EXTERNO
+MONITOR_DB_USER = "QKD"
+MONITOR_DB_PASSWORD = ""
+MONITOR_DB_NAME = "QKD_netsquid"
+MONITOR_BOB_KEYS_TABLE = "QKD_keys_bob"
+MIRROR_KEYS_TO_MONITOR = True
+
+
+### MENSAJES EN PANTALLA ###
+VERBOSE_BOB = False
