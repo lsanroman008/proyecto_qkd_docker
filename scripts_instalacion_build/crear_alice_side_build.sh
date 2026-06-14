@@ -20,10 +20,10 @@ mkdir -p db_alice db_monitor grafana_data logs
 chmod +x entrypoint.qkd.sh start-monitor.sh scripts_instalacion/*.sh scripts_control/*.sh 2>/dev/null || true
 
 echo "[QKD] Construyendo servicios lado Alice..."
-docker compose build alice netsquid monitor
+docker compose -f docker-compose.build.yaml build alice netsquid monitor
 
 echo "[QKD] Levantando servicios lado Alice..."
-docker compose up -d alice netsquid monitor
+docker compose -f docker-compose.build.yaml up -d alice netsquid monitor
 
 echo "[QKD] Estado de contenedores:"
 docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"

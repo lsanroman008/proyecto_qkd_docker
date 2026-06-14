@@ -19,10 +19,10 @@ mkdir -p db_bob logs
 chmod +x entrypoint.qkd.sh scripts_instalacion/*.sh scripts_control/*.sh 2>/dev/null || true
 
 echo "[QKD] Construyendo servicio Bob..."
-docker compose build bob
+docker compose -f docker-compose.build.yaml build bob
 
 echo "[QKD] Levantando servicio Bob..."
-docker compose up -d bob
+docker compose -f docker-compose.build.yaml up -d bob
 
 echo "[QKD] Estado de contenedores:"
 docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
