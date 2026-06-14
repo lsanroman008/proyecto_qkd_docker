@@ -28,7 +28,6 @@ from simstats_utils import ejecutar_simulacion_con_simstats
 
 import config_netsquid as config
 import config_errores as err
-import config_bob
 from eve import EavesdropperProtocol
 from db_utils import (
     get_db_connection,
@@ -434,7 +433,6 @@ def crear_configuracion_en_bd(conn):
         # Creamos una fila de configuración en BB84_configuracion:
         id_configuracion = crear_configuracion(
             err_config=err,
-            qber_sample_ratio=config_bob.QBER_SAMPLE_RATIO,
             bits_objetivo=TARGET_KEY_BITS,
             conn=conn,
         )
@@ -750,8 +748,6 @@ def iniciar_servidor(servidor_socket, db_conn, sesion_num):
             ################
             # (4) PROCESAR RESULTADOS Y RESPONDER A BOB
             resultados_para_bob = []
-            if getattr(config_bob, "VERBOSE_BOB", False):
-                print("[SERVIDOR] Iniciando SIFTING por el canal clásico")
             if not bob_prot.resultados:
                 print(f"[SERVIDOR] ADVERTENCIA: Bob no midió ningún qubit en esta ronda")
             

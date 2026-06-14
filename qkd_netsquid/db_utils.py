@@ -73,7 +73,7 @@ def get_db_connection(autocommit: bool = True):
 
 # CREAR FILA EN BB84_CONFIGURACION y DEVUELVE id_configuracion
 # Son parámetros que están definidos como constantes ya
-def crear_configuracion(err_config, qber_sample_ratio: float, bits_objetivo: int, conn=None) -> Optional[int]:
+def crear_configuracion(err_config, bits_objetivo: int, conn=None) -> Optional[int]:
     own_conn = conn is None
     cnx = conn or get_db_connection()
     cursor = None
@@ -87,14 +87,13 @@ def crear_configuracion(err_config, qber_sample_ratio: float, bits_objetivo: int
             usar_dephase, dephase,
             usart1t2_noise, T1_ns, T2_ns,
             eve_activa, eve_percentage_intercepted, eve_error_rate,
-            bits_verificados_pct,
             usar_measure_faulty, prob_error_medicion_0, prob_error_medicion_1,
             usar_detector_efficiency, detector_efficiency,
             usar_misalignment, misalignment_prob,
             usar_dark_counts_reales, prob_dark_count_real,
             usar_jitter_basico, jitter_prob_perdida
         ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
-                  %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                  %s, %s, %s, %s, %s, %s, %s, %s)
     """
 
     # Errores cogidos de config_errores:
@@ -117,7 +116,6 @@ def crear_configuracion(err_config, qber_sample_ratio: float, bits_objetivo: int
         int(err_config.eve_activa),
         err_config.eve_percentage_intercepted,
         err_config.eve_error_rate,
-        int(round(qber_sample_ratio * 100)),
 
         int(getattr(err_config, "usar_measure_faulty", False)),
         getattr(err_config, "prob_error_medicion_0", 0.0),

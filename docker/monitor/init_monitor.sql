@@ -88,7 +88,6 @@ CREATE TABLE IF NOT EXISTS `BB84_configuracion` (
     `eve_error_rate` FLOAT NOT NULL DEFAULT 0.0,
 
     -- (2) ESTIMACIÓN DE PARÁMETROS (QBER) --
-    `bits_verificados_pct` INT NOT NULL DEFAULT 30,
     `qber_abort_threshold` FLOAT DEFAULT NULL,
     
     -- (3) CORRECCIÓN DE ERRORES (RECONCILIACIÓN) -- 
