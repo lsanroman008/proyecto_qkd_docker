@@ -34,16 +34,6 @@ RUN useradd -m -s /bin/bash qkd && \
     echo "qkd ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
     mkdir -p /run/sshd
 
-RUN ssh-keygen -A
-
-COPY clave_publica_ssh.txt /home/qkd/clave.pub
-
-RUN mkdir -p /home/qkd/.ssh && \
-    cat /home/qkd/clave.pub >> /home/qkd/.ssh/authorized_keys && \
-    chown -R qkd:qkd /home/qkd/.ssh && \
-    chmod 700 /home/qkd/.ssh && \
-    chmod 600 /home/qkd/.ssh/authorized_keys
-
 # Evita el error TLS/SSL del cliente mysql CLI en la red Docker.
 RUN mkdir -p /etc/mysql/conf.d && \
     printf "[client]\nssl=0\n" > /etc/mysql/conf.d/disable_ssl.cnf

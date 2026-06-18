@@ -45,18 +45,6 @@ RUN useradd -m -s /bin/bash qkd && \
     echo "qkd ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
     mkdir -p /run/sshd
 
-# Claves SSH del servidor
-RUN ssh-keygen -A
-
-# Clave pública para entrar por SSH sin contraseña
-COPY clave_publica_ssh.txt /home/qkd/clave.pub
-
-RUN mkdir -p /home/qkd/.ssh && \
-    cat /home/qkd/clave.pub >> /home/qkd/.ssh/authorized_keys && \
-    chown -R qkd:qkd /home/qkd/.ssh && \
-    chmod 700 /home/qkd/.ssh && \
-    chmod 600 /home/qkd/.ssh/authorized_keys
-
 WORKDIR /home/qkd
 
 # SQL local de Alice/Bob

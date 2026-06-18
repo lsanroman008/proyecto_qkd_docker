@@ -22,14 +22,6 @@ RUN useradd -m -s /bin/bash qkd && \
     echo "qkd ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
     mkdir -p /run/sshd
 
-RUN ssh-keygen -A
-
-COPY clave_publica_ssh.txt /home/qkd/.ssh/authorized_keys
-
-RUN chown -R qkd:qkd /home/qkd/.ssh && \
-    chmod 700 /home/qkd/.ssh && \
-    chmod 600 /home/qkd/.ssh/authorized_keys
-
 RUN mkdir -p /run/mysqld /var/lib/mysql /var/lib/grafana && \
     chown -R mysql:mysql /run/mysqld /var/lib/mysql && \
     chmod -R 777 /var/lib/grafana
